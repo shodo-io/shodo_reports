@@ -1,0 +1,6 @@
+.idea/
+.dist/
+dist/
+*.iml
+node_modules
+*.docx
