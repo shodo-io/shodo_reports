@@ -4,3 +4,4 @@ dist/
 *.iml
 node_modules
 *.docx
+*.docx#

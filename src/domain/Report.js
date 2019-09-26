@@ -1,18 +1,14 @@
 "use strict";
 exports.__esModule = true;
 var Report = /** @class */ (function () {
-    function Report(date, consultant, objectives) {
+    function Report(date, consultant, client, score, project, interview) {
         this.date = date;
         this.consultant = consultant;
-        this.objectives = objectives;
+        this.client = client;
+        this.score = score;
+        this.project = project;
+        this.interview = interview;
     }
-    Report.prototype.addObjectives = function () {
-        var objectives = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            objectives[_i] = arguments[_i];
-        }
-        this.objectives = objectives;
-    };
     return Report;
 }());
 exports.Report = Report;
