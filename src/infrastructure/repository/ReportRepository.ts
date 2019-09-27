@@ -1,4 +1,4 @@
-import mongoose, {Schema, Document, Types} from 'mongoose';
+import mongoose, {Schema, Document} from 'mongoose';
 import {Client} from "../../domain/Client";
 import {Score} from "../../domain/Score";
 import {Project} from "../../domain/Project";
@@ -14,8 +14,7 @@ export interface IReport extends Document {
 }
 
 const reportSchema: Schema = new Schema({
-    _id: {type: Schema.Types.ObjectId},
-    date: {type: Date, required: true, unique: true},
+    date: {type: Date, required: true},
     consultant: {type: String, required: true},
     client: {
         type: {
@@ -26,7 +25,8 @@ const reportSchema: Schema = new Schema({
                     firstName: String,
                     lastName: String,
                     position: String,
-                }}]
+                }, required: true
+            }]
             ,
         }, required: true
     },
@@ -34,12 +34,12 @@ const reportSchema: Schema = new Schema({
         type: {
             note: Number,
             goodPoints: [{
-                type: String
+                type: String, required: true
             }],
             negativePoints: [{
-                type: String
+                type: String, required: true
             }]
-        }
+        }, required: true
     },
     project: {
         technicalEnvironment: String,
@@ -51,12 +51,12 @@ const reportSchema: Schema = new Schema({
             type: [{
                 question: String,
                 answer: String,
-            }]
+            }], required: true
         },
         observation: String,
         codingGame: String
     },
-    archived: {type: String}
+    archived: {type: Boolean, auto: true, required: true, default: false}
 });
 
 export default mongoose.model<IReport>('reports', reportSchema);

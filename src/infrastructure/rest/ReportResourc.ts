@@ -1,6 +1,5 @@
 import {Request, Response} from "express";
 import * as reportRepository from '../repository/ReportRepository';
-import {Report} from "../../domain/Report";
 import logger from '../../util/logger';
 
 class ReportResource {
@@ -30,27 +29,23 @@ class ReportResource {
     };
 
     static update = async (req: Request, res: Response) => {
-        ReportResource.updateReport(req, res, "updating report...", {archived: true});
+        ReportResource.updateReport(req, res, "updating report...", req.body);
     };
 
     static archive = async (req: Request, res: Response) => {
-        ReportResource.updateReport(req, res, "archiving report...", {archived: true});
+        ReportResource.updateReport(req, res, "archiving report...", {$set: {archived: true}});
     };
 
     private static updateReport(req: Request, res: Response, msg: string, body: any) {
         logger.debug(msg + req.body.toString());
-        const report: Report = req.body;
-        reportRepository.default.findOneAndUpdate({_id: report._id}, {$set: body}, {new: false}, (err, updatedReport) => {
-            if (err) {
-                logger.error(err);
-                res.send(err);
-            }
-            res.send(updatedReport);
+        reportRepository.default.findByIdAndUpdate(req.body._id, body, {new: true, upsert: false}).then((modifiedReport) => {
+            res.send(modifiedReport);
             res.status(200).end();
+        }).catch((err) => {
+            logger.error(err);
+            res.send(err);
         });
-
     }
-
 }
 
 export default ReportResource;

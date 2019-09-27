@@ -1,4 +1,5 @@
 import {Report} from '../../src/domain/Report';
+import {Schema} from "mongoose";
 
 describe('Report instantiation', () => {
 
