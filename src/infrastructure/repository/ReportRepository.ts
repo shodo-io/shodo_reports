@@ -1,4 +1,4 @@
-import mongoose, {Schema, Document} from 'mongoose';
+import mongoose, {Schema, Document, Types} from 'mongoose';
 import {Client} from "../../domain/Client";
 import {Score} from "../../domain/Score";
 import {Project} from "../../domain/Project";
@@ -14,19 +14,20 @@ export interface IReport extends Document {
 }
 
 const reportSchema: Schema = new Schema({
+    _id: {type: Schema.Types.ObjectId},
     date: {type: Date, required: true, unique: true},
     consultant: {type: String, required: true},
     client: {
         type: {
             name: String,
             description: String,
-            interlocutors: {
-                type: [{
+            interlocutors: [{
+                type: {
                     firstName: String,
                     lastName: String,
                     position: String,
-                }]
-            },
+                }}]
+            ,
         }, required: true
     },
     score: {
@@ -54,7 +55,8 @@ const reportSchema: Schema = new Schema({
         },
         observation: String,
         codingGame: String
-    }
+    },
+    archived: {type: String}
 });
 
 export default mongoose.model<IReport>('reports', reportSchema);

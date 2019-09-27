@@ -16,17 +16,17 @@ describe('Report instantiation', function () {
                 {
                     firstName: 'Tom',
                     lastName: 'HANKS',
-                    position: 'PO',
+                    position: 'PO'
                 },
                 {
                     firstName: 'Nathalie',
                     lastName: 'PORTMAN',
-                    position: 'Lead Dev',
+                    position: 'Lead Dev'
                 },
                 {
                     firstName: 'Angelina',
                     lastName: 'JOLIE',
-                    position: 'Architecte technique',
+                    position: 'Architecte technique'
                 }
             ]
         },
@@ -64,10 +64,11 @@ describe('Report instantiation', function () {
             ],
             observation: '',
             codingGame: ''
-        }
+        },
+        archived: false
     };
     it('should instantiate complete report', function () {
-        var report = new Report_1.Report(testReport.date, testReport.consultant, testReport.client, testReport.score, testReport.project, testReport.interview);
+        var report = new Report_1.Report(testReport.date, testReport.consultant, testReport.client, testReport.score, testReport.project, testReport.interview, false);
         expect(report.date).toStrictEqual(testReport.date);
         expect(report.consultant).toEqual(testReport.consultant);
         expect(report.client.name).toStrictEqual(testReport.client.name);

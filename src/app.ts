@@ -19,7 +19,7 @@ process.on('uncaughtException', function(err) {
 const MongoStore = mongo(session);
 
 // Controllers (route handlers)
-import * as reportResource from "./infrastructure/rest/ReportController";
+import * as reportResource from "./infrastructure/rest/ReportResourc";
 
 // Create Express server
 const app = express();
