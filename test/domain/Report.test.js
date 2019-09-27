@@ -62,7 +62,8 @@ describe('Report instantiation', function () {
                         '« exécutables » on peut parler de code et de développement d’application.'
                 }
             ],
-            observation: ''
+            observation: '',
+            codingGame: ''
         }
     };
     it('should instantiate complete report', function () {
@@ -78,7 +79,7 @@ describe('Report instantiation', function () {
         expect(report.project.technicalEnvironment).toStrictEqual(testReport.project.technicalEnvironment);
         expect(report.project.longProjectDescription).toStrictEqual(testReport.project.longProjectDescription);
         expect(report.project.shortProjectDescription).toStrictEqual(testReport.project.shortProjectDescription);
-        expect(report.interview).toMatchSnapshot(testReport.interview);
+        expect(report.interview).toStrictEqual(testReport.interview);
     });
 });
 //# sourceMappingURL=Report.test.js.map

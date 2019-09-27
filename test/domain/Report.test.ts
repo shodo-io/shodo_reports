@@ -54,17 +54,17 @@ describe('Report instantiation', () => {
         },
         interview:
             {
-                questionsAnswers:
-                    [
-                        {
-                            question: 'Qu’est ce que le BDD ?',
-                            answer: 'approche favorisant la communication entre les différents ' +
-                                'acteurs d’une equipe (Métier ↔ Techs). J’ai dit également qu’ils s’agissait de spécifications exécutables  ' +
-                                'en expliquant que les dans « spécifications », on pouvait parler de com et de besoin et dans ' +
-                                '« exécutables » on peut parler de code et de développement d’application.'
-                        }
-                    ],
-                observation: ''
+                questionsAnswers: [
+                    {
+                        question: 'Qu’est ce que le BDD ?',
+                        answer: 'approche favorisant la communication entre les différents ' +
+                            'acteurs d’une equipe (Métier ↔ Techs). J’ai dit également qu’ils s’agissait de spécifications exécutables  ' +
+                            'en expliquant que les dans « spécifications », on pouvait parler de com et de besoin et dans ' +
+                            '« exécutables » on peut parler de code et de développement d’application.'
+                    }
+                ],
+                observation: '',
+                codingGame: ''
             }
     };
 
@@ -82,11 +82,9 @@ describe('Report instantiation', () => {
         expect(report.project.technicalEnvironment).toStrictEqual(testReport.project.technicalEnvironment);
         expect(report.project.longProjectDescription).toStrictEqual(testReport.project.longProjectDescription);
         expect(report.project.shortProjectDescription).toStrictEqual(testReport.project.shortProjectDescription);
-        expect(report.interview).toMatchSnapshot(testReport.interview);
+        expect(report.interview).toStrictEqual(testReport.interview);
 
     });
-
-
 });
 
 

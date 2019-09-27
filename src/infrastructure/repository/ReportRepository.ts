@@ -52,7 +52,8 @@ const reportSchema: Schema = new Schema({
                 answer: String,
             }]
         },
-        observation: String
+        observation: String,
+        codingGame: String
     }
 });
 

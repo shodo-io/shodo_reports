@@ -4,7 +4,8 @@ export class Interview {
 
     constructor(
         public questionsAnswers: Array<QuestionAnswer>,
-        public observation: string
+        public observation: string,
+        public codingGame: string
     ) {
     }
 }
