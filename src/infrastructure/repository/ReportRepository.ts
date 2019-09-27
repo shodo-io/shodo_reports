@@ -2,8 +2,7 @@ import mongoose, {Schema, Document} from 'mongoose';
 import {Client} from "../../domain/Client";
 import {Score} from "../../domain/Score";
 import {Project} from "../../domain/Project";
-import {Interview} from "../../domain/Interview";
-
+import {QuestionAnswer} from "../../domain/QuestionAnswer";
 
 export interface IReport extends Document {
     date: Date,
@@ -11,7 +10,7 @@ export interface IReport extends Document {
     client: Client,
     score: Score,
     project: Project,
-    interview: Array<Interview>
+    interview: Array<QuestionAnswer>
 }
 
 const reportSchema: Schema = new Schema({
@@ -47,10 +46,13 @@ const reportSchema: Schema = new Schema({
         longProjectDescription: String,
     },
     interview: {
-        type: [{
-            question: String,
-            answer: String,
-        }]
+        questionsAnswers: {
+            type: [{
+                question: String,
+                answer: String,
+            }]
+        },
+        observation: String
     }
 });
 

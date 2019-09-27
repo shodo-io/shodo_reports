@@ -7,7 +7,7 @@ describe('Report instantiation', () => {
         consultant: 'Mister perfect',
         client: {
             name: 'OneWealthPlace',
-            description: 'est  un éditeur de logiciels. Ils commercialisent 4 logiciels : \n' +
+            description: 'OneWealthPlace est  un éditeur de logiciels. Ils commercialisent 4 logiciels : \n' +
                 '    • AirWealth : Gestion de relation client  (CRM) + portail client avec gestion personnalisée de la clientèle\n' +
                 '    • AirFund : Plateforme collaborative de gestion des données de fonds basée sur la Blockchain\n' +
                 '    • AirDistrib : Application destinée aux sociétés de gestion de portefeuille → Industrialisation des processus liés à la distribution des fonds des sociétés.\n' +
@@ -33,7 +33,7 @@ describe('Report instantiation', () => {
         score: {
             note: 4,
             goodPoints: ['Technologies hétérogènes et stack technique moderne, méthodologie agile, conditions ' +
-                'de travail confortables et besoin de mise en place de bonnes pratiques'],
+            'de travail confortables et besoin de mise en place de bonnes pratiques'],
             negativePoints: ['Equipe de dév très peu nombreuse et un seul architecte qui décide de l’archi des applications.']
         },
         project: {
@@ -52,15 +52,20 @@ describe('Report instantiation', () => {
                 'Maintenant, ils veulent investir dans les bonnes pratiques et diminuer la dette technique et font donc' +
                 'appel à de la prestation pour intervenir en tant que dév sénior sur les projets. '
         },
-        interview: [
+        interview:
             {
-                question: 'Qu’est ce que le BDD ?',
-                answer: 'approche favorisant la communication entre les différents ' +
-                    'acteurs d’une equipe (Métier ↔ Techs). J’ai dit également qu’ils s’agissait de spécifications exécutables  ' +
-                    'en expliquant que les dans « spécifications », on pouvait parler de com et de besoin et dans ' +
-                    '« exécutables » on peut parler de code et de développement d’application.'
+                questionsAnswers:
+                    [
+                        {
+                            question: 'Qu’est ce que le BDD ?',
+                            answer: 'approche favorisant la communication entre les différents ' +
+                                'acteurs d’une equipe (Métier ↔ Techs). J’ai dit également qu’ils s’agissait de spécifications exécutables  ' +
+                                'en expliquant que les dans « spécifications », on pouvait parler de com et de besoin et dans ' +
+                                '« exécutables » on peut parler de code et de développement d’application.'
+                        }
+                    ],
+                observation: ''
             }
-        ]
     };
 
     it('should instantiate complete report', () => {

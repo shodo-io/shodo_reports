@@ -4,7 +4,7 @@ import ReportController from "../rest/ReportController";
 const router = Router();
 
 //Get all users
-router.get("/", ReportController.listAll);
+router.get("/", ReportController.findAll);
 
 
 export default router;

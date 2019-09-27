@@ -1,7 +1,8 @@
 import {Client} from "./Client";
 import {Score} from "./Score";
-import {Interview} from "./Interview";
+import {QuestionAnswer} from "./QuestionAnswer";
 import {Project} from "./Project";
+import {Interview} from "./Interview";
 
 export class Report {
 
@@ -11,7 +12,7 @@ export class Report {
         public client: Client,
         public score: Score,
         public project: Project,
-        public interview: Array<Interview>
+        public interview: Interview
     ) {
     }
 

@@ -1,9 +1,10 @@
+import {QuestionAnswer} from "./QuestionAnswer";
+
 export class Interview {
 
     constructor(
-        public question: string,
-        public answer: string,
+        public questionsAnswers: Array<QuestionAnswer>,
+        public observation: string
     ) {
-
     }
 }
