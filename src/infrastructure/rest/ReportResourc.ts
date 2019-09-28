@@ -14,6 +14,16 @@ class ReportResource {
         });
     };
 
+    static findOneById = async (req: Request, res: Response) => {
+        reportRepository.default.find({_id: req.body.id}, (err, reports) => {
+            if (err) {
+                logger.error(err);
+            } else {
+                res.send(reports);
+            }
+        });
+    };
+
     static create = async (req: Request, res: Response) => {
         logger.debug("saving report..." + req.body.toString());
         reportRepository.default
@@ -33,15 +43,17 @@ class ReportResource {
     };
 
     static archive = async (req: Request, res: Response) => {
-        ReportResource.updateReport(req, res, "archiving report...", {$set: {archived: true}});
+        ReportResource.updateReport(req, res, "archiving report...", {"$set": {"archived": true}});
     };
 
     private static updateReport(req: Request, res: Response, msg: string, body: any) {
         logger.debug(msg + req.body.toString());
-        reportRepository.default.findByIdAndUpdate(req.body._id, body, {new: true, upsert: false}).then((modifiedReport) => {
-            res.send(modifiedReport);
-            res.status(200).end();
-        }).catch((err) => {
+        reportRepository.default.findByIdAndUpdate(req.body.id, body, {new: true, upsert: false})
+            .then((modifiedReport) => {
+                res.send(modifiedReport);
+                res.status(200).end();
+            })
+            .catch((err) => {
             logger.error(err);
             res.send(err);
         });
